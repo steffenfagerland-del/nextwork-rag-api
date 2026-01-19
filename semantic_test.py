@@ -29,6 +29,6 @@ def test_nextwork_query():
     print("✅ NextWork query test passed")
 
 if __name__ == "__main__":
-    test_kubernetes_query()
     test_nextwork_query()
+    test_kubernetes_query()
     print("All semantic tests passed!")
