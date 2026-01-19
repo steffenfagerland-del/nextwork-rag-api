@@ -9,7 +9,9 @@ def test_kubernetes_query():
     answer = response.json()["answer"]
 
     # Check for key concepts (orchestration was removed, so only check for container)
+    assert "orchestration" in answer.lower(), "Missing 'orchestration' keyword"
     assert "container" in answer.lower(), "Missing 'container' keyword"
+    
     
     print("✅ Kubernetes query test passed")
 
