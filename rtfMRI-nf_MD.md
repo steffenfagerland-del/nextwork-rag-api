@@ -1,0 +1,2117 @@
+**J Electr Bioimp, vol. 15, pp. 41–62, 2024**
+Received 10 Feb 2024 / published 27 May 2024
+[https://doi.org/10.2478/joeb-2024-0006](https://doi.org/10.2478/joeb-2024-0006)
+
+# Exploring protocol development: Implementing systematic contextual memory to enhance real-time fMRI neurofeedback
+
+
+Steffen Maude Fagerland [1] _[,]_ [2] _[,]_ [3] _[,][∗]_, Henrik Røsholm Berntsen [1], Mats Fredriksen [4], Tor Endestad [3] _[,]_ [5], Stavros Skouras [6] _[,]_ [7] _[,]_ [8],
+Mona Elisabeth Rootwelt-Revheim [1] _[,]_ [9] and Ragnhild Marie Undseth [1] _[,]_ [2] _[,]_ [10]
+
+
+1. _The Intervention Centre, Division of Technology and Innovation, Oslo University Hospital, Oslo, Norway_
+2. _Department of Cognitive and Neuropsychology, Department of Psychology, University of Oslo, Oslo, Norway_
+3. _RITMO Centre for Interdisciplinary Studies in Rhythm, Time and Motion, Department of Psychology, University of Oslo, Norway_
+4. _Neuropsychatric Outpatient Clinic, Vestfold Hospital Trust, Tønsberg, Norway_
+5. _Department of Neuropsychology, Helgeland Hospital, Norway_
+6. _Department of Fundamental Neurosciences, Faculty of Medicine, University of Geneva, Geneva, CH-1202, Switzerland_
+7. _Department of Biological and Medical Psychology, University of Bergen, Bergen, NO-5020, Norway_
+8. _Department of Neurology, Inselspital University Hospital Bern, Bern, CH-3010, Switzerland_
+9. _Institute of Clinical Medicine, Faculty of Medicine, University of Oslo, Oslo, Norway_
+10. _Division of Radiology Research, The Intervention Centre, Oslo University Hospital, Oslo, Norway_
+_∗_ _E-mail any correspondence to: skfagerl@uio.no_
+
+
+
+**Abstract**
+
+
+_Objective:_ The goal of this study was to explore the
+development and implementation of a protocol for real-time
+fMRI neurofeedback (rtfMRI-nf) and to assess the potential
+for enhancing the selective brain activation using stimuli from
+Virtual Reality (VR). In this study we focused on two specific
+brain regions, supplementary motor area (SMA) and right
+inferior frontal gyrus (rIFG). Publications by other study
+groups have suggested impaired function in these specific
+brain regions in patients with the diagnoses Attention Deficit
+Hyperactivity Disorder (ADHD) and Tourette’s Syndrome
+(TS). This study explored the development of a protocol to
+investigate if attention and contextual memory may be used
+to systematically strengthen the procedure of rtfMRI-nf.
+
+_Methods:_ We used open-science software and platforms
+for rtfMRI-nf and for developing a simulated repetition of
+the rtfMRI-nf brain training in VR. We conducted seven
+exploratory tests in which we updated the protocol at each
+step. During rtfMRI-nf, MRI images are analyzed live while
+a person is undergoing an MRI scan, and the results are
+simultaneously shown to the person in the MRI-scanner. By
+focusing the analysis on specific regions of the brain, this
+procedure can be used to help the person strengthen conscious
+control of these regions. The VR simulation of the same
+experience involved a walk through the hospital toward the
+MRI scanner where the training sessions were conducted, as
+well as a subsequent simulated repetition of the MRI training.
+The VR simulation was a 2D projection of the experience.
+
+
+
+The seven exploratory tests involved 19 volunteers.
+Through this exploration, methods for aiming within the
+brain (e.g. masks/algorithms for coordinate-system control)
+and calculations for the analyses (e.g. calculations based on
+connectivity versus activity) were updated by the project team
+throughout the project. The final procedure involved three
+initial rounds of rtfMRI-nf for learning brain strategies. Then,
+the volunteers were provided with VR headsets and given
+instructions for one week of use. Afterward, a new session
+with three rounds of rtfMRI-nf was conducted.
+_Results:_ Through our exploration of the indirect effect
+parameters – brain region activity (directed oxygenated blood
+flow), connectivity (degree of correlated activity in different
+regions), and neurofeedback score – the volunteers tended
+to increase activity in the reinforced brain regions through
+our seven tests. Updates of procedures and analyses were
+always conducted between pilots, and never within. The VR
+simulated repetition was tested in pilot 7, but the role of the
+VR contribution in this setting is unclear due to underpowered
+testing.
+_Conclusion:_ This proof-of-concept protocol implies how
+rtfMRI-nf may be used to selectively train two brain regions
+(SMA and rIFG). The method may likely be adapted to train
+any given region in the brain, but readers are advised to update
+and adapt the procedure to experimental needs.
+
+
+**Keywords:** rtfMRI-nf, ADHD, Tourette’s Syndrome, VR
+
+
+
+© 2024 Author(s). This is an open access article licensed under the Creative Commons Attribution License 4.0.
+[(http://creativecommons.org/licenses/by/4.0/).](http://creativecommons.org/licenses/by/4.0/)
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+Figure 1: Discovered deviations in the brain of patients with TS mapped through (a) diffusion tensor imaging (DTI) and (b) connectivity;
+(c) a schematic of the setup of rtfMRI-nf, showing an overview of the required instruments and sequence of events; (d) when comparing
+the strategic thinking of assumed vegetative patients with that of healthy controls, it was discovered that these patients were, in fact,
+not vegetative. Figures (a,b,c,d) from ([1],[2],[3],[4]), respectively.
+
+
+
+**2. Introduction**
+Bio- and neuro-feedback relates to monitoring one’s own
+biological indicators with the aim of inducing enhanced
+conscious control of them. Feedback from sensors used
+to record these indicators (e.g. pulse, heartrate variability,
+bioimpedance, fMRI, fNIRS) may be presented to the individual using a watch, mobile phone, computer screen or
+VR googles. Neurofeedback based on fMRI allows monitoring of own brain activity. Conscious and repeated activation of specific regions of the brain may help establish new circuits, which may potentially strengthen these
+regions. Outcomes after neurofeedback training can be
+measured using activity measurements (degree of directed stream of oxygenated hemoglobin toward the area)
+and connectivity (degree of correlated activity in separate
+regions), and these measures may be correlated with validated questionnaires for clinical outcomes.
+Several sensors have been developed to monitor
+changes in, for example, heart rate, skin conductance, or
+muscle tone, reflecting arousal. Indicators of brain activity
+can be monitored through, for example, electroencephal
+
+
+ogram (EEG) or functional Magnetic Resonance Imaging
+(fMRI) [5, 6, 7, 8, 9]. Previous studies on biofeedback
+have found that approaches aimed at gaining control over
+one’s own physiology may have therapeutic potential for
+conditions such as epilepsy, ADHD, chronic pain, depression, and anxiety [9, 10, 11, 12, 13].
+Improved biofeedback methods may have widespread
+applicability in selectively inducing new brain circuits, and
+may thus potentially be used for correcting impairments
+or disorders affecting cognitive functions. The approach
+we explored the development of in this publication aimed
+to allow repeating fMRI brain training at home. Recent
+studies using machine learning were able to distinguish
+patients with Tourette’s Syndrome ([1, 2], Fig.1a,b) and
+ADHD ([14]) from healthy controls, implying that structural and functional alterations may be a part of the origin
+of these diagnoses. Therefore, the ability to consciously
+tune such alterations, reducing the deviation from healthy
+controls, may reduce the severity of such conditions.
+Real-time fMRI neurofeedback (rtfMRI-nf) is in essence
+
+
+
+42
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+”closed-loop brain training” ([15]), and allows participants
+to achieve control of brain activity during fMRI sessions
+
+[16, 17] (Fig.1c). An important principle concerning how
+strategic thinking may activate predetermined parts of the
+brain was demonstrated when guided fMRI was used to
+detect awareness in presumed vegetative patients in 2006
+
+[4, 18] (Fig.1d). This method, with its high degree of
+spatial control, is foreshadowed to advance clinical neuroscience [19].
+The field of rtfMRI-nf has developed rapidly. In a review from 2018, Thibault _et al._ claimed that the results were promising, but more research was needed ([7]).
+A review of rtfMRI-nf on patient populations corroborated the promising results (Tursic _et al._, 2020), and highlighted the need of larger sample sizes [20]. Moreover,
+a quantitative meta-analysis of controlled rtfMRI-nf experiments treating psychiatric disorders found large-sized
+neuronal effects after training and small-sized effects with
+respect to behavioral outcomes ([21], 2021). The rapid
+pace of development in this field has made it challenging
+to establish a common standard. However, a Consensus
+on the Reporting and Experimental Design of clinical
+and cognitive-behavioral neurofeedback studies (CREDnf) checklist and a study design guide have been published
+to enhance consistency (2020, [22, 23]).
+The rtfMRI-nf feedback is displayed through a Brain
+Computer Interface (BCI), and several BCI options exist, including commercial ( _Turbo-Brain Voyager_, [24,
+25]), open-access ( _OpenNFT_, [26]), and cloud-based approaches ([27]). The feedback displayed in such BCIs is
+the measured and analyzed signal translated to an intuitive and unambiguous output. This may take the form
+of, for example, a developing graph, a bar/thermometer,
+clarity of images, and/or a rocket man, depending on the
+study’s goal and the sample’s participants [28, 16, 29, 30,
+31]. The feedback may be calculated based on a region of
+interest (ROI) ([28, 32, 16, 33, 30]), brain connectivity
+([34, 35]), and/or networks [36].
+Time has been identified as an important parameter
+for patient effects in ongoing studies ([37]), and longlasting effects in connectivity have been observed in several studies [34, 5, 38]. Furthermore, a review examined
+white matter (WM) plasticity in the adult brain and its
+potential role in lifelong learning ([39]), and a study has
+demonstrated - through DTI - how rtfMRI-nf can be used
+to modify WM structures in corpus callosum [40].
+Protocols investigating the effects of biofeedback and
+neurofeedback have been developed for various populations and conditions. However, the field of fMRIneurofeedback is still in its early stages ([41]), and the intersection of fMRI-neurofeedback and virtual reality (VR)
+is even more nascent. Meta-analyses published after
+this study’s completion suggest that the efficiency of
+neurofeedback is promising, but protocols remain het
+
+
+erogeneous, and the majority of studies still use EEGneurofeedback ([42, 43, 44]). Studies have been performed where VR has simulated an MRI experience ([45]),
+VR has been used to prepare children for MRI ([46]), and
+studies have used VR during hemoencephalographic ([10])
+and MRI sessions ([47]). Recent studies have explored the
+use of fMRI VR-like stimuli to prepare PTSD patients for
+VR training ([48]), machine learning of biofeedback to
+optimize VR exposure therapy ([49]), the combination of
+biofeedback, VR, and mobile technology to enable home
+training through sham-feedback ([50]), and NIRS neurofeedback for at-home use by patients ([51]). To the best
+of the authors’ knowledge, this is the first protocol aiming
+to explore how targeted use of contextual memory/VR
+immersion, and home training with sham-feedback may
+enhance subsequent real-time fMRI neurofeedback sessions.
+The aim of this paper is primarily to describe the development and preliminary evaluation of our protocol for
+real-time fMRI neurofeedback (rtfMRI-nf) and secondarily to explore the potential for behavioral enhancement by
+implementing systematic contextual memory.
+
+
+_2.1. Conditions to treat_
+We explored the development of a protocol to treat patients with ADHD and Tourette’s Syndrome, replicating
+the ROIs of [32] and [28] (rIFG and SMA, respectively) in
+the treatment. By changing the ROIs in the algorithms,
+the protocol can be tailored to enhance/decrease activity/connectivity in any subregion of the brain.
+As studies on neurodevelopmental disorders often target a younger population and SiV specializes in adult patients, we chose to explore the development of this treatment to treat adult patients. Results from neurofeedback
+studies have shown promise for these diagnoses, and analyses of the effects of stimulants and network deviations
+for these conditions have highlighted deviations in specific regions that can be targeted by neurofeedback. Furthermore, access to all of the required expertise and instrumentation at OUH/UiO/SiV allowed this exploration.
+This form of brain training shares parallels with physical
+training; for example, more training yields larger effects.
+However, as MRI scanning is both difficult and expensive,
+we chose to include VR and contextual memory to test if
+repeated sessions in VR could yield similar effects. If so,
+this would greatly heighten the applicability of the treatment, as patients could use a VR headset and continue
+training at home.
+ADHD is characterized by pervasive and impairing
+symptoms of inattention, hyperactivity and impulsivity
+(deviations with respect to (wrt) inhibition, Fig.2a), and
+affects around 5% of children and adolescents, and 2 _._ 5%
+of adults worldwide [52]. Patients may benefit from a
+combination of pharmacological and psychosocial structured treatments, where psychostimulants (e.g. Fig.2b)
+
+
+
+43
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+(a) (b)
+
+
+Figure 2: (a) regions exhibiting _decreased_ activity in the brain during inhibition in patients with ADHD includes SMA and rIFG; (b)
+methylphenidate - a common drug to treat ADHD - stimulates rIFG and decreases activity in SMA; (c) a mapping of regions with
+deviations correlating with TS symptoms includes SMA and rIFG; (d) conscious tic control and attention may sum to decrease tics in
+adult TS patients, the two potentially controlled by SMA and rIFG, respectively. Figures (a,b,c,d) from ([53],[54],[55],[56]), respectively.
+
+
+
+are the gold standard for reducing symptoms ([57]); nonstimulants are less effective, and psychosocial treatments
+are recommended to learn to master the symptoms and
+deal with them in a more adaptive way [52]. However,
+since many patients experience little benefit and/or severe
+side effects from pharmacological agents, there is a need
+for new treatment options. The evidence for the longterm efficacy of psychostimulants is limited, and brain adaptation may be related to psychostimulants losing their
+effectiveness over time [57].
+Tourette’s Syndrome is a neurological condition appearing in childhood recognized by motor and vocal tics. The
+earliest and most frequent tics include blinking of the eyes,
+facial movements, and neck movements [58]. The dia
+
+
+gnosis requires multiple motoric tics and at least one vocal tic which have lasted for at least one year [59]. In
+Norway from 2000 to 2010, 0 _._ 43% of children received a
+diagnosis of TS by the age of 12, and the internationally
+estimated prevalence of TS in children aged 6 to 15 years
+is 0 _._ 77% [60]. For a sizable number of patients, the condition persists into adulthood, and it is estimated to affect
+0 _._ 08% of adults [59]. (Regions of the brain associated
+with TS symptoms are seen in Fig.2c.) Pharmacotherapy
+and Habit Reversal Training/Exposure and Response Prevention/Comprehensive Behavioral Intervention for Tics
+([61, 62, 63, 64, 65, 66, 67, 68]), are strategies used for
+treating TS. However, many individuals experience insufficient relief from these options, and there is a pressing
+
+
+
+44
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+(a) (b)
+
+
+(c) (d)
+
+
+Figure 3: (a) motor control through the tripartite model; (b) how the hyperdirect pathway bypasses the striatum wrt motor inhibition;
+(c) a common subthalamic nucleus placement of the DBS electrode in Parkinsons Disease patients, stimulating the hyperdirect pathway
+; (d) an update of the tripartite model. Figures (a,b,c,d) from ([69],[69],[70],[71]), respectively.
+
+
+
+need to develop new therapies for adults with TS. A new
+therapy - for adults - based on attention distraction shows
+promise [56] (Fig.2d). Many patients diagnosed with TS
+have comorbid ADHD, OCD, and/or anxiety. The prevalence of comorbidity is as high as 90%, and these comorbid
+conditions often have a more significant impact on the
+Quality of Life of the patients than the tics themselves
+
+[59].
+
+
+_2.2. Regions of interest_
+Treatment of ADHD (children) and Tourette’s Syndrome
+(adolescents) through rtfMRI-nf has been studied previously in [32] and [28], respectively. The ROIs of interest
+in these studies were rIFG ([32, 31]) and SMA ([28]).
+For Tourette’s Syndrome (TS), tics (”unvoluntary”
+movements, neither voluntary nor involuntary, [72]) may
+have an origin in SMA; [73] showed that 2 seconds in advance of a tic, SMA was activated in TS patients. For
+patients with ADHD, a general hypoactiation of rIFG wrt
+inhibition was found in a meta-analysis ([74], Fig.2a) and
+a stimulant ( _methylphenidate_ ) which relieves the symptoms stimulates rIFG ([54], Fig.2b).
+
+
+
+A review on TS highlighted deviations in _corticostri-_
+_atothalamocortical_ (CSTC, [69]) circuits, where the _dir-_
+_ect_, _indirect_ and _hyperdirect pathways_ dictate motor control (Fig.3a). The same review showed a model of how
+the hyperdirect pathway bypasses striatum in inhibiting
+movement control ([69], Fig.3b). Post-mortem studies
+have shown that TS patients can have a 50% reduction
+in GABAergic interneurons in striatum (part of the CSTC,
+
+[55]), and a recent PhD study demonstrated how attention distraction could be used as a treatment for _adults_
+with TS ([56], Fig.2d).
+A common placement of Deep Brain Stimulation electrodes for treating movement disorders is in subthalamic
+nucleus (STN) ([70], Fig.3c). An investigation with high
+spatial and temporal resolution through field potentials in
+the human cortex revealed that the hyperdirect pathway
+between inferior frontal gyrus and STN indeed exists in
+humans, and that it mediates rapid stopping ([75, 71],
+Fig.3d). An investigation using diffusion tensor imaging
+to map the connections of right inferior frontal gyrus corroborated the connection between rIFG and STN [76].
+
+
+
+45
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+(a) (b)
+
+
+(c) (d)
+
+
+Figure 4: (a) a memory palace used in 1511 AD, providing a virtual context to what was to be remembered; (b) how context in VR
+was used in deceived participants, indicating how context may aid memory; (c) a VR game used during an rtfMRI-nf run to assess
+susceptibility for developing Alzheimer’s disease; (d) a hypothesized model for how context reinstatement may aid memory. Figures
+(a,b,c,d) from ([77],[78],[79],[80]), respectively.
+
+
+
+A meta-analysis of fMRI studies on inhibition (and attention) in patients with ADHD found a systematic reduction in activation in _both SMA and rIFG_ concerning
+inhibition [53]. Based on these results, we aimed to enhance this pathway.
+As rIFG may be trained as a consequence of the rtfMRInf method ([33]), we chose to provide feedback from SMA
+and measure resulting effects on both SMA and rIFG. Reinforcing both ROIs could aid both conditions; the primary
+interest is the relative importance of the ROIs for the benefit of the patients. Recent research has led to the hypothesis that ADHD and TS, and OCD and autism, may
+actually lie along a impulsivity-compulsivity spectrum [81].
+
+
+_2.3. Virtual Reality enhancement_
+
+The use of fMRI as a tool for brain training is expensive
+and time consuming both for the patients and health care
+providers. In need of a simplified brain training system,
+we used Virtual Reality (VR) goggles containing a visual
+experience mimicking their prior rtfMRI-nf training. VR
+based brain training lacks the feedback from the fMRIfeedback loop and is similar to sham-feedback sessions
+(which display prerecorded feedback), commonly used as
+
+
+
+a control in rtfRMI-nf studies ([28, 34, 82, 24], if not for
+ethical reasons [16, 3]).
+Since many factors influence neurofeedback performance ([83, 84]), including psychological aspects ([85]),
+we aimed to test how episodic memory/VR could be used
+to enhance the reinstatement of the learning setting for
+rtfMRI-nf. Context to aid memory has been used since
+the ancient times (Fig.4a), and VR induced context was
+shown to aid memory (Fig.4b). Neurofeedback through
+VR has been used to test memory (Fig.4c), reinstate context to aid memory ([86]), and experiments have been
+done to induce a mental context through rtfMRI-nf [30].
+A model for how context may aid memory has been developed by deBettencourt _et al._ [80] (Fig.4d).
+We tested if VR simulation could trigger contextual/episodic memory ([87]) in a way that would allow
+us to extend the brain training, yielding results similar to
+rtfMRI-nf sessions. Our intention with using VR shares
+similarities with why participants in [32] were asked to
+practice daily between sessions of rtfMRI-nf; participants
+were given a cue-card depicting the feedback and asked
+to train by remembering the training in the MRI-scanner.
+
+
+
+46
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+Our VR-based approach parallels the preparation of participants for MRI scans through exposure therapy using
+mock scanners and VR approaches [88, 46, 45]. Using
+VR during an MRI scan has been shown to reduce anxiety
+and improve results [47]. VR used to aid in reinstating
+context has been shown to enhance memory ([78]), and
+VR training has been shown to enhance attention in patients with ADHD [89]. Neurofeedback to practice motor imagery was also shown superior to repetitive practice
+([90]), and a skill-based VR Cognitive Behavior Therapy
+has been shown to reduce chronic pain [11].
+When exploring the development of this protocol for
+VR enhanced rtfMRI-nf, we used the open-access software OpenNFT as the rtfMRI-nf platform [26]. For the
+initial _in vitro_ testing, we used the open-access data in
+
+[91] accompanying [26]. Using this platform and this
+dataset, we collaborated with radiologists/radiographers
+and translated the _in vitro_ setup to perform continuous
+classification-based feedback (Case study 3 in [91]). We
+wrote code/algorithms and developed a gamified feedback
+design (based on [32] and [28]), and incrementally learned
+to tune the protocol through pilots. We wrote protocols
+and code for preprocessing and analysis using Matlab and
+accompanying toolboxes when needed. Included in the
+development was the simulation of the rtfMRI-nf experience through VR, the sham-feedback itself was based on
+screen-recordings of participants, as used in e.g. [28, 33].
+
+
+**3. Methods and analysis**
+
+The software used includes Matlab and the toolboxes
+SPM ([92, 93]), CONN, and Anaconda. Checks of MRIimages versus ROIs were done through the free crossplatform software ITK-snap ([94]) and MRICron ([95]).
+
+
+_Informed consent_
+
+Consent was obtained in both verbal and written form.
+Participants were provided with information about the
+purpose and procedure of the study in written form, to
+which they agreed in advance of the initial trial. Further
+information was given verbally by the first author on each
+trial day, witnessed by the second author and radiographers. Radiographers ensured participants complied with
+safety precautions regarding MRI scans in advance of all
+trials.
+
+
+_Ethical Approval_
+
+The research related to human use has been complied
+with all relevant national regulations, institutional policies
+and in accordance with the tenets of the Helsinki Declaration, and has been approved by the authors’ institutional
+review board or equivalent committee.
+
+
+_3.1. Defining the ROIs_
+
+As outlined in Sec.2.2, the developmental goal was to
+provide neurofeedback from _SMA_ and _rIFG_ . The ROI
+in the rtfMRI-nf procedure is the selected subset of the
+brain from which the activity is analyzed, feedback is
+
+
+
+calculated, and then presented to the participant. This
+study was an ongoing research project to develop both
+the scientific argumentation of the protocol and the competence to perform it. The different phases of the study
+thus targeted the given ROIs with increasing precision.
+In Pilots 1-4, we used the mask in _parietal lobe_ defined
+by [26, 91]. For a coarse restriction, _WFU_pictatlas_
+([3, 96]) may be used, and this was how we defined the
+ROIs during pilots 5 and 6 (rIFG _pars triangularis_ and
+_pars opercularis_ through the Brodmann Areas 44 and 45
+based on [97]). The ROIs were defined with a dilation
+factor 2 to ensure that the ROI contained the volume
+across participants. For pilot 7, we used the Julich Probabilistic Maps ([98]); which is probabilistic maps based on
+averaged/simulated dynamics in the human brain, defined
+in MNI-space. We chose this atlas as it is the foundation of the Multilevel Human Brain Atlas, is open to all
+neuroscientists via the Human Brain Project’s research
+infrastructure EBRAINS, and due to previous experience
+of one of the researchers in using regions defined through
+this atlas for neurofeedback. We reinforced SMA (based
+on e.g. [28, 5, 83, 37, 99, 33]) and rIFG ([32, 97, 54,
+100, 101, 33, 56]).
+In the EBRAIN database ([102]) we used
+the _JULICH_BRAIN_CYTOARCHITECTONIC_
+__MAPS_2_9_MNI152_2009C_NONL_ASYM_ to
+define the ROIs. The 3D reconstructed histological datasets in [102] are transferred into two reference spaces,
+the single subject MNI-Colin27 space, and non-linearly
+transformed into ICBM2009casym space; the latter being
+a compromise between the anatomically detailed MNIColin27 and the more generic but smoother MNI305
+template [98]. Through the accompanying text-file one
+finds that SMA (in both hemispheres) is defined through
+areas 135 and 136, and that rIFG is defined through area
+120 and 122.
+As both rIFG and SMA are defined through two subregions, we combined these subsections using temporary
+variables and performed voxel-by-voxel summation in a
+custom-written Matlab script. For voxels where the ROIs
+to be combined were overlapping, we used the maximum
+value.
+
+
+_3.2. Calculating the feedback_
+
+For the real-time fMRI calculations, we used OpenNFT
+
+[26, 91]. The rationale for choosing OpenNFT over e.g.
+Turbo Brain Voyager was financial, OpenNFT is openaccess, which also induces easier communication and replication of the protocol by other scientists. The OpenNFT
+platform is a BCI that takes the ROIs to be investigated
+as input and analyzes the activity of this/these ROI(s)
+during the experiment. We wrote a gamified feedback
+where the output from OpenNFT was transferred into
+a game where a rocket was flying through space during
+activation-blocks (resembling [32]), and a submarine was
+sinking during deactivation-blocks, with a goal to obtain
+
+
+
+47
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+the maximum, summed score. As the output from OpenNFT was single number between 0 and 1, we reversed
+the feedback by using _1-OpenNFT feedback_ during downregulation blocks (thus, no rest-periods, [28]); maximum
+BOLD signaling in the chosen ROI then effectively yields
+a minimum score in the feedback during these periods.
+Reinforcing both activation and deactivation was
+chosen to enhance conscious control of the ROI ([28, 5]).
+The feedback was mirrored onto a LCD screen behind the
+MRI-scanner, and the participant in the scanner only saw
+the rocket/submarine, and the updating score. In addition to the rtfMRI-nf sessions and a sMRI, we included a
+12-volume pre-fMRI sequence to be used in adapting the
+ROI to the fMRI-space of the person in the scanner.
+In our exploratory development we initially developed a
+procedure in line with the setup of OpenNFT, a block
+design with task and rest periods tunable through an
+OpenNFT configuration file ([32]). In this configuration
+file, output during rest periods equals zero. As we wanted
+to purposefully enhance deactivation of the ROI during
+rest periods ([28]) in our protocol, we chose to change
+the paradigm and developed a "block-design" consisting
+of 2 blocks. (The results from pilots 1-4 and pilots 5-7 are
+thus not comparable.) The rest block contained only the
+initial 10 volumes (for saturating the magnetic field), and
+the remaining 200 volumes constituated the task block.
+This task block was further subdivided in activation and
+deactivation periods, which were not visible in OpenNFT,
+but were presented in the feedback to the participant in
+the scanner.
+The blocks were a compromise between [28, 32, 26],
+where we recorded 210 fMRI volumes (as in [26, 91]),
+designed a gamified feedback based on [32], and adapted
+the block length from [28] (20 volumes) to 18 to create
+an equal length of all blocks according to our repetition
+time (TR, 2.15 seconds).
+
+
+_3.3. Transforming from MNI to personalized fMRI-space_
+The Julich Brain Atlas ROIs in Sec.3.1. are defined in
+MNI-space. To be able to track the ROI precisely during the rtfMRI-nf, a conversion of the ROI from MNIspace/coordinates to fMRI-space is required. We wrote
+an SPM Batch algorithm to adapt and convert the MNIspace-defined ROI. This conversion was done through a
+combination of an sMRI volume and an fMRI volume recorded first during the rtfMRI-nf training. The purpose
+of this conversion was to accurately target the specific
+region in the brain of the person in the scanner. Details
+of extracting the ROIs and of the SPM Batch process is
+described in SI.1-2; examples are shown in Fig.5.
+
+
+_3.4. Preparing participants_
+Participants were given a general introduction to the principles of the procedure in advance of the experiments.
+
+
+
+The way this exploratory protocol is designed is with the
+goal of keeping the invasiveness to the participants to a
+minimum; therefore, our procedure did not require any additional information other than what was recorded during
+the rtfMRI-nf training sessions. Developing an objective,
+highly standardized protocol may circumvent the need for
+a localizer scan (as in e.g. [28, 103, 24]). The ROIs targeted were chosen due to anatomical deviations correlating with the diagnoses. Therefore, given that the patient
+is correctly diagnosed with the condition, they would benefit from our selective brain training when targeting the
+intended anatomical position. We chose to use a method
+to translate the anatomical MNI-space data of the regions
+to the participant fMRI-space to ensure individual adjustment (SI.2). This also removes the need for prerecorded
+fMRI data to be used, for example, in machine learning,
+to enhance precision (as in [104]). With regard to safety,
+in collaboration with professional radiographers, the preparation to and conduction of the rtfMRI-nf was similar
+to a normal MRI-session. Recruitment, information and
+preparation of the participants are described in SI.3.
+While performing the rtfMRI-nf, participants in the
+MRI-scanner saw an animation of a spaceship flying upwards. In activation blocks, the speed of the rocket was
+dictated by the simultaneous activation of regions within
+their brain. Activation blocks were separated by periods of
+rest, during which no feedback was given. Starting from
+pilot 5, we modified the paradigm by replacing the resting periods with periods where active deactivation was
+reinforced. The VR simulation included a walk through
+the hospital toward the MRI-scanner, followed by a shamfeedback session based on a random sampling of screen
+recordings of earlier rtfMRI-nf sessions.
+
+
+_3.5. MRI-scanner and parameters_
+
+The experiments were performed at Oslo University Hospital, on a Siemens Magnetom Prisma 3T whole body MR
+scanner ([28, 91, 92]). For the fully developed protocol,
+each session consisted of the following: 1) a 12-volume
+pre-fMRI resting-state scan, 2) a T1-weighted sMRI scan,
+and 3) three rounds of rtfMRI-nf. The first two scans
+were used in a Matlab/SPM batch fMRI-space adaptation
+algorithm. The 12 volume pre-fMRI scans were recorded
+using a T2*-weighted EPI sequence TR/TE = 2150/28
+ms, flip angle = 74 _[◦]_, 35 x 2.5 mm slices with a 0.6 mm
+slice gap, 22 cm FoV, and voxel size = 2.2 x 2.2 x 2.5
+mm [3] . The T1 weighted scans were recorded with TR
+(repetition time)/TE (echo time) = 1 _._ 900 _/_ 3 _._ 16 _ms_, flip
+angle = 9 _[◦]_, 192 x 1 mm slices, matrix size 256 x 256,
+256 mm FoV, voxel size = 1.0 x 1.0 x 1.0 mm [3] . The following three rounds of rtfMRI-nf were recorded with the
+same parameters as the initial 12 volume pre-fMRI resting
+state scan.
+
+
+
+48
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+Figure 5: Examples from the ROI extraction and later adaptation. (a) SMA in the right hemisphere as directly shown through the
+SPM display code shown earlier; (b) the combined SMA in MNI space shown in green, and SMA realigned according to the pre-fMRI
+volume of a person having gone through the SPM adaptation algorithm (in red), the required shift according to fMRI-space is evident;
+(c) the same shifted ROI from (b) shown according to the fMRI volume of the person to be trained; (d) the same ROI from (b-c)
+overlaid the pre-fMRI of a different person having gone through the rtfMRI-nf, the need for realignment is evident.
+
+
+
+_3.6. Running the rtfMRI-nf_
+Our rtfMRI-nf protocol required the synchronization of
+the laptop performing the real-time analyses with the MRI
+scanner, enabling the software to expect and wait for incoming fMRI volumes. The repetition time (TR) of the
+MR-scan was set such that an entire loop of MRI-transfer,
+MRI-analysis/feedback calculation, and feedback display
+were conducted within each TR. (OpenNFT has additional safety checks to ensure analyzing the correct
+sequence.) The setup led to the raw MRI image being
+sent to a shared folder (shared between the MRI scanner and the laptop), whereas another program renamed
+and transferred the MRI image to a new folder. In this
+folder, OpenNFT expected the images to be analyzed
+to appear and analyzed all incoming files. OpenNFT
+was configured to analyze the BOLD data for specific
+ROIs within the fMRI volumes, and the calculated feedback was subsequently sent to our gamified feedback
+display, which is mirrored onto the LCD screen at the
+back of the MRI scanner. This loop was repeated for
+each fMRI-volume. We used OpenNFT version number
+_1.0.0rc0_ and _matlabengineforpython 2021a_ . The laptopfMRI synchronization was based on [105]. The setup is
+further explained in SI.4.
+
+
+
+Radiographers translated our experimental setup and
+rtfMRI-nf block-design and created a MRI-template. Our
+design included a 12-volume pre-fMRI resting state scan with the same parameters as the later rtfMRI-nf sessions
+-, then subsequently a T1 weighted sMRI, in advance
+of three rounds of rtfMRI-nf. A 12-volume pre-fMRI
+was used to ensure that the magnetic field was homogenized/saturated at the 12th volume. This volume was then
+converted from dcm to nii format. The sMRI was first
+converted to axial slices, then converted to nii format, and
+subsequently combined to a stack through FIJI/ImageJ.
+The converted 12th volume pre-fMRI and sMRI files were
+then processed via the normalization/MNI-fMRI-space
+SPM Batch algorithm described in SI.2.
+After the completion of the SPM Batch algorithm,
+the output files underwent further processing through
+another Matlab algorithm to create two masks: one
+weighted mask that was filtered to remove residuals
+(post-filtering/smoothing, with the deletion of voxel values under 0.1 and above 1.0), and a binarized mask. The
+binarized mask involved first deleting voxel values below
+0.1, followed by setting all non-zero voxel values to 1.0.
+
+
+
+49
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+Protocol chronology,
+VR assisted rtfMRI-nf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 6: Abbreviations: fMRI=functional magnetic resonance imaging, rIFG=right inferior frontal gyrus, rtfMRI-nf=real time fMRI
+neurofeedback, ROI=region of interest, VR=virtual reality
+
+
+
+_3.7. VR home training_
+
+To assess if we could utilize VR to enhance the efficiency of the treatment, we developed a VR platform
+with a sham replication of the rtfMRI-nf experience to
+be used for home training. The sham feedback was created through screen recordings of rounds of rtfMRI-nf
+run _in vitro_ on data collected in earlier pilots. To aid the
+reinstatement of the mental context surrounding the experience, the VR experience included a walk through the
+hospital toward the MR-scanner. The MR-scanner noise
+was also added during the sham-feedback. The VR experience was made as simple as possible, such that the
+participants only had to press ”Play” after mounting the
+VR-headset (SI.5).
+
+
+_3.8. Analyzing rtfMRI-nf_
+
+Analysis of the results was conducted using the Matlab
+SPM-based toolboxes CONN and REX ([106, 107]) for
+the analysis of the connectivity and activity of the ROIs,
+respectively. Details of this analysis are described in SI.6.
+We chose to register each round for each participant as an
+individual subject to prevent the automatic averaging of
+participants. For instance, a participant with two separate
+sessions, each containing three rounds of neurofeedback,
+resulted in six different sets of fMRI scans, but only one
+T1-weighted sMRI was imported.
+To ease replication and enhance standardization, we
+conducted the analysis following the procedures suggested by CONN, only actively selecting the additional REX
+output. Through the standardized 4-step analysis setup,
+
+
+
+the CONN GUI culminates in an interface where one can
+e.g. choose to selectively investigate how the _connectivity_
+between two isolated ROIs - predefined from a HarvardOxford brain atlas - changed during the fMRI scans in the
+study. Through the extra REX output, the analysis also
+exported additional files (interrogated through the Matlab
+toolbox REX) where the _activity pattern_ for each isolated
+subregion could be displayed.
+
+
+_3.9 Performing the protocol_
+
+In this section, an overview of the protocol is given in
+Fig.6, and the details of the steps are described in the
+supporting information (SI). Links to respective sections
+describing the steps are included in the flow diagram.
+
+
+_3.10 Pilots/representative results_
+
+In this study, we explored the development of a protocol to
+conduct rtfMRI-nf. Additionally, we performed preliminary testing to investigate how VR may potentially enhance
+the treatment through sham feedback home-training. We
+performed pilot testing throughout the exploration of the
+different stages of the procedure. Pilot 1 was performed
+purely _in vitro_, pilots 2 and 3 were conducted on a singlesubject each, pilot 4 involved 10 volunteers, pilot 5 involved 2 volunteers, pilot 6 involved 3 volunteers, and
+pilot 7 involved 2 volunteers. Representative results from
+the 7 pilots are displayed in Fig.7 and Fig.8.
+First we made the platform work _in vitro_, and OpenNFT as seen in [26] is displayed Fig.7a. Fig.7b shows
+the end display after an early pilot using our adjusted
+
+
+
+50
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+software; the center window is the feedback display, and
+the end score in this round was 520. In Fig.7c-d, the
+rocket, which represents how the feedback was presented,
+is displayed in its minimum speed (Fig.7c) and maximum
+speed (Fig.7d), and the image used for relaxation blocks
+is shown in Fig.7e. We initially used a block design with
+activation vs. rest ([32]), but later decided to reinforce
+activation and deactivation ([28]).
+Connectivity-analyses of the MRI-Images from the
+rtfMRI-nf pilots 2 and 3 (tested on the first author, 2
+sessions, 1x3 and 1x1rounds) through the Matlab toolbox CONN is shown in Fig.7f-j. Furthermore, we tested
+whether the connectivity of our initial rIFG mask to the
+mask given feedback changed during the training, as indicated in the three sequential rounds (Fig.7f). In Fig.7gh sections from the CONN definition of rIFG and SMA
+is shown, respectively. In Fig.7i-j connectivity analyses
+from the CONN definitions of rIFG (both the _pars tri-_
+_angularis_ and _pars opercularis_ ) are shown. Fig.7j includes a refined definition of the combination of rIFG.
+Of primary interest in Fig.7i-j is the indication of the effect of time and sequential training. As these were results
+from rtfMRI-nf of the same participant spread across two
+times, the heightened activity level in the fourth column
+(with respect to the first) may indicate that the participant learned/the brain matured from session 1 to session 2.
+In pilot 4 we conducted a pilot of 10 volunteers, the
+results from which are shown in Fig.7k-o. In Fig.7k,
+the average total score for each of the participants are
+shown through the 6 rounds of rtfMRI-nf, divided into
+two sessions, separated by 1 week. In Fig.7l-m the averaged developing activity level through REX analyses of
+the binarized mask given feedback and rIFG is shown. The
+mask given feedback (Fig.7l) did not display an increasing trend, which was in contrast to the activity in rIFG
+(Fig.7m), which indicated an increased activity level from
+start to finish. In Fig.7n-o example images are shown
+from REX analyses of the activity in the binarized mask
+and the weighted mask, respectively, in the parietal lobe
+for one of the participants in the 4. pilot. Limitations of
+this pilot include e.g. the definition of the ROI masks,
+and the use of fMRI-space adapted masks to a different
+MRI-scanner and different brains.
+For pilot 5, we tested redefining the ROI masks given
+feedback on two volunteers and created a mask of rIFG
+for the first volunteer and a mask of SMA for the second
+volunteer (Fig.8a-d). We also altered the block design
+of the neurofeedback, replicating the method described in
+
+[32] for rtfMRI-nf of the first volunteer and the method
+described in [28] for rtfMRI-nf of the second volunteer.
+The masks were created in _WFU_pickatlas_ and output
+in MNI-space, but the reslicing of the masks was done
+based on earlier pilots. The first volunteer did show a
+small increase in the activity level of rIFG given feedback
+(Fig.8a), but the connectivity between rIFG and SMA did
+
+
+
+not increase (Fig.8b). The second volunteer did not show
+an increase in activity in either SMA or rIFG.
+In pilot 6 we tested the use of support vector machine
+learning to enhance the efficiency of the neurofeedback
+protocol. Based on [26, 91], we used the PRoNTo toolbox
+([108]) to test adapting the mask given feedback through
+the brain training, replicating [109]. Due to the time required for updating the masks, we only updated the mask
+once (during the sMRI), and did one session of rtfMRI-nf
+on three healthy volunteers, all training SMA. REX results from these pilots are shown in Fig.8e-g. The results
+show that the activity in the binarized SMA increased from
+the start to the finish for all three volunteers (Fig.8e).
+The activity also increased in the weighted SMA mask
+being PRoNTO updated (Fig.8f), and similarly, for two
+of the three volunteers, the activity in rIFG also increased
+through the training (Fig.8g).
+In pilot 7 sham feedback was tested, both in the MRIscanner, and during the VR-home training. Due to an unforeseen event, we were forced to conduct sham feedback
+on both volunteers in session 1, and the VR-home training
+therefore lost a lot of its purpose as we have no reference
+to which to evaluate the performance of the volunteers.
+Analyses of the neurofeedback training sessions through
+REX and CONN are shown in Fig.8h-k. In this pilot the
+MRI-protocol was updated, and additional software was
+written to include adaptation of the mask to the fMRIspace of the volunteer in the MRI-scanner. In Fig.8h and
+Fig.8i the averaged activity of SMA and rIFG through the
+sessions are plotted, respectively; evident from these plots
+is that the activity of both the ROIs for the two volunteers increased through the brain training. Also of interest
+is the fact that there is a marked _activity increase_ from
+session 1 to session 2. In Fig.8j the connectivity between
+SMA and rIFG is plotted. Also evident from this plot is
+the general increase in the connectivity between the two
+ROIs. This increased correlation of activity may indicate that conscious use of SMA, reacting/adapting to the
+neurofeedback, may enhance the activity of rIFG. Feedback from the volunteers revealed that the VR-platform
+need further development. The similarity of each round
+of the VR-home training was less inspirational than the
+neurofeedback training at the hospital, resulting in them
+not performing much home-training.
+In Fig.8k results from an _in vitro_ rerun of data from pilot
+4 is shown, where feedback was shifted from the parietal
+mask from [91] to personalized rIFG. The result from this
+analysis also indicates that rIFG is enhanced through the
+rtfMRI-nf sessions, in accordance with [33].
+
+
+**4. Discussion**
+
+This article describes the phases of exploratory development and preliminary evaluation of a protocol for real-time
+fMRI neurofeedback (rtfMRI-nf), as well as the potential
+inclusion of enhancement using stimuli from Virtual Reality (VR), which could be relevant in the treatment of pa
+
+
+51
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+tients with ADHD and TS.
+We applied OpenNFT as a basis for the protocol, and
+wrote _Anaconda_, _MATLAB_, and _SPM_ algorithms to enhance the precision of the protocol. The testing of the
+protocol yielded positive preliminary results. One of the
+strengths of this protocol is that it is easily generalizable
+to any given region of the brain, and to e.g. different
+block-designs and feedback paradigms.
+OpenNFT was experienced accessible, and tuning this
+software to our experimental needs was relatively easy. As
+the output from OpenNFT is provided in sequential numbers in _Anaconda_, creating a feedback program that responds to the OpenNFT output allowed for an accessible
+feedback display. Updates and enhancements for OpenNFT are continuously in development, as demonstrated
+in [110].
+The use of the standardized Julich Brain Map provided
+a more precise location for the ROI to be reinforced
+compared to the use of _WFU_pickatlas_ . Additionally,
+a foundation in updated structural segmentation enables
+further refinement of the brain training, allowing for more
+precise adjustments.
+Developing the VR-platform to be used for the hometraining was completed in a purely functional sense, but
+we found that the immersive quality of the developed VRplatform needs to be updated to increase participant motivation for conducting the home-training. Options for enhancing the usability of the VR-platform could be to e.g.
+include a VR-simulation of the MRI-scanner where the
+participant could interact more with the room/scanner/
+consciously choose to enter the scanner, the neurofeedback could be made more visually/intellectually stimulating, the walk through the hospital could be filmed with
+a 360 degree camera to induce a stronger sense of presence at the hospital and/or this step could be deleted in
+general.
+Without feedback from the brain when using the VRheadset, this neurofeedback setup will need further development for adult use. The intuitive, gamified feedback
+rapidly became predictable when the participants knew
+that the feedback was fake (despite 9 sham-feedback sessions were programmed and randomly selected in the VRtraining). The platform might have had a stronger effect
+on children (although the ethical considerations are challenging), but for the VR platform to achieve the intended
+effect, more focus must be placed on replicating the experience. Alternatively, a different form of feedback, such
+as functional near-infrared spectroscopy (fNIRS), could
+be considered. The use of fNIRS is a far more flexible approach and enables recording and providing feedback based on a similar haemodynamic response as in the
+fMRI, without the need of the restrictive MRI-scanner,
+but is restricted to the top centimeters of the cortex
+
+[111]. However, the fNIRS approach has been compared
+and validated for investigating SMA ([112, 113, 114])
+and IFG ([115]). The use of sequential rtfMRI and rt
+
+
+fNIRS feedback for stroke rehabilitation was found to significantly improve motor function ([116, 117]). Using
+fNIRS neurofeedback for treating children with ADHD
+has also recently been done, showing promising results,
+especially concerning attention deficit symptoms [118].
+An additional option is to replace VR-based home training with transcranial direct current stimulation (tDCS)based home training, which has been recently implemented ([119]). In this approach, adult participants stimulated their right dorsolateral prefrontal cortex 28 times
+(once every day) over four weeks, resulting in increased
+attention. Both longevity and consistency of the study
+and age of the participants may have been important, as
+tDCS stimulation in [57] did not yield any clinical change.
+
+[57] used tDCS over 15 consecutive weekdays (excluding weekends) targeting rIFG in children, and participants
+in [119] did not show any changes after 14 stimulations
+over two weeks. However, unlike rfMRI-nf and rtfNIRSnf, tDCS is passive stimulation.
+The developed algorithm for the MNI- to fMRI-space
+adaptation resulted in the two sequential sessions more
+accurately reinforcing the same ROIs. The lack of this in
+the earlier pilots draws into question if anything other than
+purely mechanical procedural lessons can be learned from
+the earlier results. Visualizing/comparing the ROIs given
+feedback after the fMRI-space adaptation, and comparing the overlap of the ROIs revealed large discrepancies.
+Hence, this is an essential step, and may also partly explain
+why the volunteers showed a large variation in achieved
+feedback control, and also partly why thought strategies
+which functioned well in session 1 did work not in session
+2.
+The use of support vector machine (SVM) learning
+to enhance the efficiency of the neurofeedback was not
+tested sufficiently to allow inferences to be drawn, but the
+PRoNTo software was tested in a preliminary pilot, and
+the resulting weighted voxels output from the analysis did
+lead to an overall increase in the neurofeedback for the
+participants conducting the one session rtfMRI-nf. This
+might be related to the output from the SVM analysis to
+a larger extent reflecting how the person in the scanner
+was using the brain. That is, despite the original mask
+given feedback was not adapted to the fMRI-space of the
+person, performing a SVM analysis on the first round of
+rtfMRI-nf may yield a new mask which more accurately
+reflects how the person used the brain in round 1 when
+calculating the feedback for the subsequent rounds 2 and
+3. This line of thought could be given more importance
+in subsequent experiments.
+The developed protocol avoided the use of a functional localizer task (regarded a weakness of the protocol in [120]), but instead relies on the study focusing
+on a predetermined area of brain. This setup is therefore applicable for studies e.g. focusing on strengthening/weakening regions shown abnormal in mental disorders, replicating/simulating the effects of drugs through
+
+
+
+52
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+mental training, or for rehabilitation of patients with lesions in the brain, caused by e.g. strokes or surgery in the
+brain. Easy tuning of the ROI given feedback through the
+Julich Brain Map and subsequent algorithms allows several
+patient conditions to be treated, and creation of control
+ROIs (e.g. controlling though the anti-correlated ROI,
+
+[32]) is equally simple. The developed protocol also allows
+for easy manipulation of e.g. the block-design, feedback
+display, and transfer-runs/sham-feedback.
+Through our pilot experiments, we have discovered that
+the VR simulation used for home training needs to be
+more similar to the rtfMRI-nf in order to achieve the desired effect regarding how sequential rtfMRI-nf and simulated VR sham feedback could enhance treatment effects. In future experiments, we will replace the passive
+VR home training between sessions of rtfMRI-nf with active fNIRS feedback (similar to [116, 117]), providing participants with continuous active feedback throughout the
+treatment.
+
+
+**5. Ethics and dissemination**
+All procedures were approved by the Norwegian Regional
+Ethics Committee (REK). The volunteers provided their
+written informed consent to participate in the study. All
+rtfMRI-nf sessions were supervised by professional doctors
+and radiologists. This study is a part of a PhD project that
+will be publicly disseminated.
+
+
+_Expected Results_
+Through implementing this targeted brain training on patients, we anticipate being able to measure increases in
+SMA and rIFG BOLD responses through fMRI analysis.
+We anticipate that these same increases will be paralleled
+by enhanced connectivity and activity, as demonstrated
+through MATLAB analyses using CONN and REX, respectively.
+The extended implications of increased conscious control over these brain regions for patients with these diagnoses may reduce the severity of their conditions. However, to demonstrate this, long-term follow-up studies implementing the completed protocol on patient populations
+are necessary.
+
+
+_Limitations_
+During the development, there were no blinding or other
+controls for biases. All the volunteers were recruited
+through ad hoc processes; when pilots were to be arranged
+and the MRI scanner was available, volunteers were contacted through personal networks of the employees at
+
+
+
+Nordic Neurotech. Therefore, there was no systematic
+control of the personal characteristics, homogeneity, or
+representativeness of the samples in the different pilots.
+But as e.g. different ROIs, different block-designs, and
+different feedback paradigms were utilized through the
+project, comparison between pilots can not in any regard
+be justified. Developing understanding of the software and
+instrumentation throughout the project also adds another
+variable dimension.
+
+
+**6. Conclusion**
+The developed protocol was shown to be operational and
+may be used to conduct rtfMRI-nf on all regions/ROIs
+of the brain; sham-feedback experiments are required to
+verify the function of the protocol. The setup describes
+the procedure for conducting rtfMRI-nf of SMA and rIFG,
+but exchanging these ROIs with any others can easily be
+done through substituting the MNI-space ROIs extracted
+initially (from EBRAINS or other sources) in advance of
+any processing. By changing the ROI, the strategies advised to the participants must also be changed (or one
+may choose to not give any strategies), as the strategies
+applied will induce selective brain activation for ROI-based
+feedback. Thus, this setup can therefore be used for any
+kind of BOLD-based regional brain training. We were
+able to show a trend toward increasing control of a ROI
+(early pilot), and developments through the project refined the protocol (e.g. enhanced the precision of both
+the brain training and the analyses, and improved the VRreplication), but we did not reach any conclusive results.
+We recommend researchers using this protocol to pay attention to potential alterations in the activity of rIFG regardless of the ROI given feedback.
+
+
+**Acknowledgments**
+This research could not have happened without the aid of
+Kim Lien and his team of experts at Nordic Neurotech.
+This multidisciplinary startup allowed for fruitful scientific
+discussions and developments which culminated in the
+results presented in this publication. The procedure for
+conversion from MNI-space to personalized fMRI-space
+was developed and written by Stavros Skouras. Birger
+Bang assisted some of the rtfMRI-nf pilots, and Ole Jakob
+Elle, Joel Glover and Rune Raudeberg gave valuable inputs
+when designing the study and the analyses of the data.
+All the rounds of real-time fMRI neurofeedback was supervised/conducted by the radiographers: Janne Fossen,
+Jorunn Fraser-Green and Kenneth Ottesen Pedersen.
+
+
+
+53
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+
+
+
+
+Figure 7: The pilots and the results are described in the Pilots/representative results section, Sec.3.10.
+
+
+54
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+
+
+
+
+Figure 8: The pilots and the results are described in the Pilots/representative results section, Sec.3.10.
+
+
+55
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+**Supporting Information**
+
+For the steps shown in the flow diagram (Fig.6) the developed procedure is conducted as follows:
+
+
+1. The ROI to be reinforced is first selected through
+the Julich Probabilistic Maps (JuBrain) [98], which
+outputs volume coordinates are given in MNI-space.
+The ROIs we reinforced through the rtfMRI-nf were
+SMA and rIFG, justified in Sec:2.2..
+
+
+(a) The extraction and further tuning is done in
+MATLAB and SPM.
+
+
+(b) The accompanying Julich Brain Atlas text file
+defines the ROIs.
+
+
+(c) One may visualize the ROI to be extracted through the code: _spm_image(_
+_’Display’,julich_brain_colin27_v2_9(136));_,
+which displays the probabilistic SMA in the
+right hemisphere in SPM.
+
+
+(d) One then defines the subvolumes of the
+ROIs to be investigated (e.g. _SMA_right=_
+_spm_read_vols(julich_brain_colin27_v2_9(136));_ ).
+
+
+(e) To combine subregions, we wrote a custom
+MATLAB script. For voxels where the subcomponents to be combined overlapped, the maximum value was chosen.
+
+
+(f) To write out the ROI-file the _niftiwrite_   command was used. E.g. niftiwrite(SMA_
+right,’SMA_right.nii’) writes out SMA of the
+left hemisphere; the accompanying information
+for this file will be in MNI-space.
+
+
+(g) In preparation for the MNI-space to fMRI-space
+conversion, an SPM reslicing of the MNI file to
+an example fMRI volume, using specific parameters for real-time fMRI neurofeedback, was
+performed. This is necessary because the SPM
+Batch algorithm requires the ROI file to have
+the same dimensions and voxel size.
+
+
+2. The procedure outlined above can be used to create
+probabilistic maps for any part of the brain; however,
+the voxel coordinates are in MNI space. To transform the ROIs from MNI-space to fMRI-space, we
+developed a specialized four-step SPM Batch code.
+This algorithm predisposes that both a T1 volume
+and a single fMRI volume have been pre-recorded.
+The SPM Batch steps included:
+
+
+(a) A _coregistration_ step: the pre-fMRI volume is
+used as a reference to which the MNI space
+ROI is to be coregistered, and the T1 image is
+”jiggled to best match the reference”.
+
+
+(b) An _”Old segment”_ step: matching the parameters in the rtfMRI-nf to be performed, with additional pre-processing/filtering steps.
+
+
+56
+
+
+
+(c) An _”Old Normalize: Write”_ step: the normalized
+MNI-ROI files to be realigned are input, and the
+normalized files are output.
+
+
+(d) And a _”Realign: Reslice”_ step: the files from the
+former step are further resliced to match the
+pre-fMRI volume, ensuring that the MNI-ROIs
+have been normalized, realigned and resliced to
+the correct MRI-parameters, in the individual’s
+correct fMRI-space of the brain in the scanner,
+in advance of the rtfMRI-nf.
+
+
+(e) A custom Matlab-script was written to filter
+the files, removing non-numerical voxels, which
+the SPM fMRI-space adapted files were subsequently processed through.
+
+
+3. The participants are recruited and informed through
+mail about the procedure and how the brain training
+is conduced. Included in this main (and later interview) are questions about contraindications for MRI,
+e.g. strong claustrophobia or pacemakers/implanted
+metal.
+
+
+(a) The participant is given a quick introduction to
+the physics and brain BOLD mechanisms recorded and given output through rtfMRI-nf, and
+special note is given to the ROI to be given feedback in this session. Despite disagreement in
+the literature concerning if participants are to be
+provided with thought strategies/instructions
+(e.g. [28, 32] disagrees, [83] found that reward
+may be important), we gave the participants example strategies as part of explaining the function of SMA. In a review from 2021 88 _._ 2% of
+rtfMRI-nf studies provides instructions [21].
+
+
+(b) But in addition to the recommended instructions, all participants were encouraged to try
+different strategies, as no two humans are alike,
+and hobbies/interests is also a part of determining how explicit one manages to visualize the
+thought in the brain.
+
+
+(c) The participants were also informed about the
+inherent time delay in fMRI due to the hemodynamic response function, and, given the variations in the literature, we explained that this
+delay is approximately 6 seconds. Therefore,
+it was emphasized that participants should try
+each strategy for a minimum of 6 seconds before attempting a different one.
+
+
+(d) The participant is provided with MRIcompatible clothing, and a radiographer assists
+them in entering the scanner.
+
+
+(e) Contact is maintained with the participant, and
+the visibility of the LCD screen is verified before
+initiating the rtfMRI-nf session.
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+(f) After the rounds of rtfMRI-nf, the person is
+interviewed again, with the main question revolving around which thought strategies worked
+best during the rounds of rtfMRI-nf.
+
+
+(g) When the participant returns for the second session, the procedure is repeated.
+
+
+4. _Connecting and synchronizing the neurofeedback_
+_laptop and the MRI-scanner_ .
+Our experimental design includes 1 T1-weighted
+sMRI, 1 12-volume pre-fMRI scan, and then 3 rounds
+of rtfMRI-nf. The first two scans are in preparation
+of the rtfMRI-nf, yielding a two-step process.
+_Synchronization_ :
+
+
+(a) Neurofeedback laptop:
+
+
+i. The neurofeedback laptop is connected
+to the MRI-scanner through a Networkswitch.
+
+ii. The local MRI folder on the neurofeedback
+laptop is shared to a private network.
+
+
+(b) MRI-computer:
+
+
+i. An administrator access is opened on the
+MRI-computer.
+
+ii. In ”tools” one selects "Map network drive”.
+
+iii. One then selects a drive and folder, and
+uses the username and password of the
+scanner.
+
+iv. To write out the DICOM files in real-time,
+for Siemens scanners (which we use), the
+_ideacmdtool_ and the steps in [105] is followed; we documented the settings in advance of changing them to verify the later
+resetting.
+
+
+(c) Neurofeedback laptop
+
+
+i. _OpenNFT_ : an anaconda prompt is opened,
+and the codes ” _conda_ _activate_ _open-_
+_nft_venv_ ”, and ” _opennft_console_ ” opens
+the OpenNFT platform.
+
+ii. In the OpenNFT GUI, "Initiate" is selected,
+and the parameters of the experiment are
+verified in "Review Parameters", such as
+the configuration file with the block design,
+the ROIs/masks to be reinforced/subdued,
+and that the experiment is not set to "Offline".
+
+iii. _Feedback_ _display_ : a new Anaconda
+prompt is opened, and the code ” _cd_
+_C_ : _\Users\_ ( _..._ ) _\rocketwsub_ ”, and ” _npm_
+_start_ ” is input, which initiates our program
+for the feedback display.
+
+iv. _Transfer function_ : a new Anaconda prompt
+is opened, and ” _cd_ _C_ : _\Users\_
+
+
+
+( _..._ ) _\watch_ 2”, and ” _npm start_ ”, which initiates the function which will transfer the
+incoming images from the shared folder to
+the local OpenNFT folder where the analyses takes place.
+
+v. A phantom scan may be performed to verify
+that the synchronization is established.
+
+
+(d) _T1 weighted sMRI and pre-fMRI scan_
+
+
+i. The MRI-experimental design is initiated,
+and the 12 volume pre-fMRI scan and the
+T1-weighted sMRI (with a 160 slice axial
+conversion) is conducted, and the files are
+transferred from the MRI-computer to the
+synchronized neurofeedback laptop.
+
+ii. The 12th volume of the pre-fMRI scan
+and the T1 weighted sMRI stack is input into the SPM Batch function to calculate/transfer the ROI from general MNIspace to the personalized fMRI-space of
+the participant in the scanner.
+
+iii. The updated ROIs (also filtered, and subdivided into a weighted and binarized mask)
+are transferred to the OpenNFT ROIfolder.
+
+
+(e) Starting rtfMRI-nf
+
+
+i. In the OpenNFT GUI, select ” _Setup_ ”, then
+” _Start_ ”.
+
+
+5. _VR home training_
+The purpose of the VR home training is to make
+this activity easy for participants to perform, and
+help them recall the training experience/thought
+strategies. Therefore, the setup was designed to be
+as intuitive as possible, and the following steps describe how to use the training.
+
+
+(a) Mount the VR headset, and turn it on.
+
+
+(b) In the VR display, select "VR home training".
+
+
+6. Analyzing the Data through CONN/REX:
+
+
+(a) After opening CONN and creating a project,
+basic information is input, including: the number of subjects, the number of sessions or
+runs, Repetition Time (in seconds), and Acquisition type: "continuous". To account for two
+rtfMRI-nf sessions, each consisting of 3 rounds,
+with a single participant, we entered the number
+of participants as 6 and the number of rounds as
+1. This configuration avoids averaging between
+the trials and allows us to track developments
+from one trial to the next.
+
+
+(b) Since all the subjects are, in fact, the same individual (per analysis), we used the same T1 scan
+as the structural data.
+
+
+
+57
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+(c) For the functional data, each round of rtfMRInf is first converted to nii files through the
+_dcm2niix_ program, and each round is input in
+the correct sequence.
+
+
+(d) For the ROI, the CONN atlas expects the MNI
+coordinates, such that the masks input here are
+the masks directly output from the EBRAINS
+MATLAB extraction. Inputting the fMRI-space
+converted masks used in the rtfMRI-nf causes
+erroneous tracking.
+
+
+(e) One then defines the conditions and converts
+the initiation of each block in the block design
+into seconds through the TR, and remembering
+to cut the initial 5 volumes from the first rest
+period as these volumes are used to homogenize
+the magnetic field in the MRI-scanner.
+
+
+(f) We did neither use any 1-level nor 2nd-level covariates.
+
+
+(g) For the ”Options” we chose to tick off ”Create
+ROI-extraction REX-files”, which creates individual REX files for the ROIs/masks one include
+in the former section.
+
+
+(h) The standard ”Preprocessing” is done, then
+”Done” is chosen.
+
+
+(i) The standard ”Denoising” is conducted.
+
+
+(j) The standard ”Analyses (1st-level)” is conducted.
+
+
+(k) For the 2nd-level connectivity analyses, we are
+using a ”ROI-to-ROI” group analysis setting,
+and choosing ”Group analysis results: individual
+ROIs” to be able to isolate how the connectivity between individual ROIs change through the
+rounds of rtfMRI-nf.
+
+
+(l) The protocol above also creates
+REX files output in the CONN
+folder where the project was created
+( _..._ _[′′]_ _project_ _[′′]_ _/results/f irstlevel/SBC_ 01).
+These files can be analyzed in the REX MATLAB toolbox by typing ”rex” in MATLAB. (In
+the ”list_condition.txt” and ”list_sources.txt”
+one may track which files to include in which
+analyses.) In the REX GUI one navigates to
+the REX output folder, and includes the ROI
+from ”which person” (that is, the sequence of
+rounds) in which condition one wished to analyze. By maintaining the ROI and condition one
+may see how the BOLD for the ROI develops
+through the training (and thus over time).
+
+
+**References**
+
+1. Hongwei Wen _et al_ . Multi-modal multiple kernel learning for accurate identification of Tourette syndrome
+children. Pattern Recognition 2017; 63:601–11, doi:
+10.1016/j.patcog.2016.09.039
+
+
+
+2. Ashley N. Nielsen _et al_ . Atypical functional connectivity in Tourette Syndrome differs between children and
+adults. Biological Psychiatry 2020; 87(2):164–73, doi:
+10.1016/j.biopsych.2019.06.021
+
+
+3. Clemens C.C. Bauer _et al_ . Real-time fMRI neurofeedback reduces auditory hallucinations and modulates resting state connectivity of involved brain regions: Part 2: Default mode network -preliminary evidence. Psychiatry Research 2020; 284:112770, doi:
+10.1038/s41398-021-01201–4
+
+
+4. Adrian M. Owen _et al_ . Detecting Awareness in the Vegetative State. Science 2006; 313(5792):1402, doi:
+10.1126/science
+
+
+5. Michelle Hampson _et al_ . Biofeedback of Real-Time
+Functional Magnetic Resonance Imaging Data from the
+Supplementary Motor Area Reduces Functional Connectivity to Subcortical Regions. Brain Connectivity
+2011; 1(1):91–8, doi: 10.1089/brain.2011.0002
+
+
+6. Robert T. Thibault _et al_ . The Psychology of Neurofeedback: Clinical Intervention Even if Applied Placebo.
+American Psychologist 2017; 72(7):679–88, doi:
+10.1037/amp0000118
+
+
+7. Robert T. Thibault _et al_ . Neurofeedback with fMRI: A
+critical systematic review. NeuroImage 2018; 172:786–
+807, doi: 10.1016/j.neuroimage.2017.12.071
+
+
+8. Gea Elena Spada _et al_ . Heart Rate Variability Biofeedback in Cancer Patients: A Scoping Review. Behavioral
+Sciences 2022; 12, 389, doi: 10.3390/bs12100389
+
+
+9. Yoko Nagai _et_ _al_ . Galvanic Skin Response
+(GSR)/Electrodermal/Skin Conductance Biofeedback on Epilepsy: A Systematic Review and MetaAnalysis. Frontiers in Neurology 2019; 10, doi:
+10.3389/fneur.2019.00377
+
+
+10. Sebastian Skalski _et al_ . Effects of hemoencephalographic biofeedback with virtual reality on selected aspects of attention in children with ADHD. International
+Journal of Psychophysiology 2021; 170:59–66, doi:
+10.1016/j.ijpsycho.2021.10.001
+
+
+11. Beth D Darnall _et al_ . Self-Administered Skills-Based
+Virtual Reality Intervention for Chronic Pain: A Randomized Controlled Pilot Study. JMIR Form Res. 2020;
+4(7):e17293, doi: 10.2196/17293
+
+
+12. David E. J. Linden _et_ _al_ . Real-Time SelfRegulation of Emotion Networks in Patients with
+Depression. PLoS One 2012; 7(6):e38115, doi:
+10.1371/journal.pone.0038115
+
+
+13. V. C. Goessl _et al_ . The effect of heart rate variability biofeedback training on stress and anxiety: a metaanalysis. Psychological Medicine 2017; 47(15):2578–
+86, doi: 10.1017/S0033291717001003
+
+
+14. Yanli Zhang-James _et al_ . Evidence for similar structural brain anomalies in youth and adult attentiondeficit/hyperactivity disorder: a machine learning analysis. Translational Psychiatry 2021; 11:82, doi:
+10.1038/s41398-021-01201–4
+
+
+15. Ranganatha Sitaram _et al_ . Closed-loop brain training:
+the science of neurofeedback. Nat Rev Neurosci 2017;
+18(2):86–100, doi: 10.1038/nrn.2016.164
+
+
+
+58
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+16. Kana Okanoa _et al_ . Real-time fMRI feedback impacts
+brain activation, results in auditory hallucinations reduction: Part 1: Superior temporal gyrus -Preliminary
+evidence-. Psychiatry Research 2020; 286:112862, doi:
+10.1016/j.psychres.2020.112862
+
+
+17. Robert W. Cox _et al_ . Real-Time Functional Magnetic Resonance Imaging. Magnetic Resonance Imaging
+1995; 33(2):230–6, doi: 10.1002/mrm.1910330213
+
+
+18. Adrian M. Owen _et al_ . Response to Comments on “Detecting Awareness in the Vegetative State”. Science
+2007; 315(5816):1221–1, doi: 10.1126/science.11355
+
+
+19. Stephan F. Taylor & Meghan E. Martz. Realtime fMRI neurofeedback: the promising potential of
+brain-training technology to advance clinical neuroscience. Neuropsychopharmacology 2023; 48:238–9,
+doi: 10.1038/s41386-022-01397–z
+
+
+20. Anita Tursic _et al_ . A systematic review of fMRI neurofeedback reporting and effects in clinical populations. NeuroImage: Clinical 2020; 28:102496, doi:
+10.1016/j.nicl.2020.102496
+
+
+21. Emily Dudek & David Dodell-Feder. The efficacy
+of real-time functional magnetic resonance imaging
+neurofeedback for psychiatric illness: A meta-analysis
+of brain and behavioral outcomes. Neuroscience &
+Biobehavioral Reviews 2021; 121:291–306, doi:
+10.1016/j.neubiorev.2020.12.020
+
+
+22. Amelie Haugg, Tomas Ros, Rene Huster _et al_ . Consensus on the reporting and experimental design of
+clinical and cognitive-behavioural neurofeedback studies (CRED-nf checklist). Brain 2020; 143, doi:
+10.1093/brain/awaa009
+
+
+23. Samantha J Fede _et al_ . A Guide to Literature Informed
+Decisions in the Design of Real Time fMRI Neurofeedback Studies: A Systematic Review. Front Hum Neurosci. 2020; 14, doi: 10.3389/fnhum.2020.00060
+
+
+24. Cassandra Sampaio-Baptista _et_ _al_ . Neurofeedback
+fMRI in the motor system elicits 1 bi-directional
+changes in 2 activity and white-matter structure in
+the healthy adult human brain. Cell Reports 2020;
+37(4):109890, doi: 10.1016/j.celrep.2021.109890
+
+
+25. Anna Zilverstand _et al_ . fMRI Neurofeedback Training for Increasing Anterior Cingulate Cortex Activation in Adult Attention Deficit Hyperactivity Disorder. An Exploratory Randomized, Single-Blinded
+Study. PLoS One 2017; 12(1):e0170795, doi:
+10.1371/journal.pone.0170795
+
+
+26. Yury Koush _et al_ . OpenNFT: An open-source Python/Matlab framework for real-time fMRI neurofeedback training based on activity, connectivity and multivariate pattern analysis. Neuroimage 2017; 156:489–
+503, doi: doi: 10.1016/j.neuroimage.2017.06.039
+
+
+27. Grant Wallace _et al_ . RT-Cloud: A cloud-based software framework to simplify and standardize realtime fMRI. NeuroImage 2022; 257:119295, doi:
+10.1016/j.neuroimage.2022.119295
+
+
+
+28. D. Sukhodolsky _et al_ . Randomized, sham-controlled
+trial of real-time fMRI neurofeedback for tics
+in adolescents with Tourette Syndrome. Biological Psychiatry 2019; 87(12):1063–70, doi:
+10.1016/j.biopsych.2019.07.035
+
+
+29. Anna Zilverstand _et al_ . fMRI neurofeedback facilitates anxiety regulation in females with spider phobia.
+Frontiers in Behavioral Neuroscience 2015; 9, doi:
+10.3389/fnbeh.2015.00148
+
+
+30. Silvy H.P. Collin, Christian F. Doeller _et al_ . Inducing a
+mental context for associative memory formation with
+realtime fMRI neurofeedback. Scientific Reports 2022;
+12:21226, doi: 10.1038/s41598-022-25799–7
+
+
+31. Sheut-Ling Lam _et al_ . Double-blind, sham-controlled
+randomized trial testing the efficacy of fMRI neurofeedback on clinical and cognitive measures in children
+with ADHD. American Journal of Psychiatry 2022; 179
+(12):947–58, doi: 10.1176/appi.ajp.21100999
+
+
+32. Analucia A. Alegria _et al_ . Real-Time fMRI Neurofeedback in Adolescents with Attention Deficit Hyperactivity Disorder. Human Brain Mapping 2017; 38(6):3190–
+209, doi: 10.1002/hbm.23584
+
+
+33. Seyhmus Guler _et al_ . Matched neurofeedback during fMRI differentially activates reward-related circuits
+in active and sham groups. Journal of Neuroimaging
+2021; 31(5):947–55, doi: 10.1111/jon.12899
+
+
+34. Fukuda Megumi _et al_ . Functional MRI neurofeedback
+training on connectivity between two regions induces
+long-lasting changes in intrinsic functional network.
+Front. Hum. Neurosci. 2015; 9(160), doi: 10.3389/fnhum.2015.00160
+
+
+35. Zhiying Zhao _et al_ . Real-time functional connectivitybased neurofeedback of amygdala-frontal pathways
+reduces anxiety. Psychotherapy and Psychosomatics
+2019; 88(1):5–15, doi: 10.1159/000496057
+
+
+36. Gustavo S P Pamplona _et_ _al_ . Network-based
+fMRI-neurofeedback training of sustained attention. NeuroImage 2020; 221:117194, doi:
+10.1016/j.neuroimage.2020.117194
+
+
+37. Mariela Rance _et al_ . Time course of clinical change following neurofeedback. Neuroimage 2018; 181:807–13,
+doi: 10.1016/j.neuroimage.2018.05.001
+
+
+38. Fabien Robineau _et al_ . Maintenance of Voluntary Selfregulation Learned through Real-Time fMRI Neurofeedback. Front. Hum. Neurosci. 2017; 11(131), doi:
+10.3389/fnhum.2017.00131
+
+
+39. Cassandra Sampaio-Baptista _et al_ . White Matter Plasticity in the Adult Brain. Neuron 2017; 96(6):1239–51,
+doi: 10.1016/j.neuron.2017.11.026
+
+
+40. Cassandra Sampaio-Baptista _et al_ . fMRI neurofeedback in the motor system elicits bidirectional changes
+in activity and in white matter structure in the adult
+human brain. Cell reports 2021; 37(4):109890, doi:
+10.1016/j.celrep.2021.109890
+
+
+
+59
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+41. Vincent Taschereau-Dumouchel _et al_ . Real-Time Functional MRI in the Treatment of Mental Health Disorders. Annual Review of Clinical Psychology 2022;
+18:125–54, doi: 10.1146/annurev-clinpsy-072220–
+014550
+
+
+42. Ikko Kimura _et al_ . Efficacy of neurofeedback training for
+improving attentional performance in healthy adults: A
+systematic review and meta-analysis. Imaging Neuroscience 2024; 2:1–23, doi: 10.1162/imag_a_00053
+
+
+43. Ryoji Onagawa _et al_ . An investigation of the effectiveness of neurofeedback training on motor performance in healthy adults: A systematic review and
+meta-analysis. NeuroImage 2023; 270:120000, doi:
+10.1016/j.neuroimage.2023.120000
+
+
+44. Mohammed Gamil Mohammed Saif, _et al_ . Clinical efficacy of neurofeedback protocols in treatment of Attention Deficit/Hyperactivity Disorder (ADHD): A systematic review. Psychiatry Research: Neuroimaging 2023;
+335:111723, doi: 10.1016/j.pscychresns.2023.111723
+
+
+45. Richard K.J. Brown _et al_ . Virtual Reality Tool Simulates MRI Experience. Tomography 2018; 4(3):95–8,
+doi: 10.18383/j.tom.2018.00023
+
+
+46. Stefan Liszio _et al_ . Pengunaut trainer: a playful VR
+app to prepare children for MRI examinations: in-depth
+game design analysis. conference: IDC 2020 :470–82,
+doi: 10.1145/3392063.3394432
+
+
+47. Stefan Liszio _et al_ . A Universe Inside the MRI Scanner:
+An In-Bore Virtual Reality Game for Children to Reduce
+Anxiety and Stress. conference: Chi Play 2020 :46–57,
+doi: 10.1145/3410404.3414263
+
+
+48. Rahul Goel _et al_ . Framework for Accurate Classification
+of Self-Reported Stress From Multisession Functional
+MRI Data of Veterans With Posttraumatic Stress.
+Chronic Stress 2023; 7:24705470231203655, doi:
+10.1177/24705470231203655
+
+
+49. Muhammad Arifur Rahman _et_ _al_ . Enhancing
+biofeedback-driven self-guided virtual reality exposure
+therapy through arousal detection from multimodal
+data using machine learning. Brain Informatics 2023;
+10(14), doi: 10.1186/s40708-023-00193-9
+
+
+50. Jasmine I. Kerr _et al_ . The effectiveness and user experience of a biofeedback intervention program for stress
+management supported by virtual reality and mobile
+technology: a randomized controlled study. BMC Digital Health 2023; 1:42, doi: 10.1186/s44247-02300042–z
+
+
+51. Christopher Lee Friesen _et al_ . Home-based portable
+fNIRS-derived cortical laterality correlates with impairment and function in chronic stroke. Frontiers in
+Human Neuroscience 2023; 16, doi: 10.3389/fnhum.2022.1023246
+
+
+52. Daniel David _et al_ . Why Cognitive Behavioral Therapy Is the Current Gold Standard of Psychotherapy. Frontiers in Psychiatry 2018; 9(4), doi:
+10.3389/fpsyt.2018.00004
+
+
+
+53. Heledd Hart _et al_ . Meta-analysis of Functional Magnetic
+Resonance Imaging Studies of Inhibition and Attention
+in Attention-deficit/Hyperactivity Disorder. JAMA Psychiatry 2013; 70(2):185–98, doi: 10.1001/jamapsychiatry.2013.277
+
+
+54. Katya Rubia _et al_ . Effects of Stimulants on Brain
+Function in Attention-Deficit/Hyperactivity Disorder; A Systematic Review and Meta-Analysis.
+Biol. Psychiatry 2014; 76(8):616–28, doi:
+10.1016/j.biopsych.2013.10.016
+
+
+55. Charlotte L. Rae _et al_ . A Bayesian Account of the
+Sensory-Motor Interactions Underlying Symptoms of
+Tourette Syndrome. Frontiers in Psychiatry 2019;
+10(29), doi: 10.3389/fpsyt.2019.00029
+
+
+56. Nicole HL. Tourette’s syndrome: The role of attention and inhibitory mechanisms in the generation and
+management of tics. University College London 2020;
+PhD(thesis)
+
+
+57. Westwood SJ _et al_ . Transcranial direct current stimulation (tDCS) combined with cognitive training in adolescent boys with ADHD: a double-blind, randomised,
+sham-controlled trial. Psychological Medicine 2023;
+53(2):497–512, doi: 10.1017/S0033291721001859
+
+
+58. Kari Paulsrud _et al_ . Tjenester til personer med autismespekterforstyrrelser og til personer med Tourettes
+syndrom. Helse- og omsorgsdepartementet 2020; 1(1)
+
+
+59. Melina Aikaterini Malli _et al_ . ”Tourette’s Is a Lonely
+Place”: an Interpretative Phenomenological Analysis
+of the Personal Experience and Identity of Adults
+with Tourette’s Syndrome. Journal of Developmental
+and Physical Disabilities 2019; 31:819–45, doi:
+10.1007/s10882-019-09676–2
+
+
+60. Pål Surén _et_ _al_ . Tourettes syndrom hos barn i
+Norge. Tidsskr Nor Legeforen 2019; 139, doi:
+10.4045/tidsskr.19.0411
+
+
+61. Renata Rizzo _et al_ . A Randomized Controlled Trial
+Comparing Behavioral, Educational, and Pharmacological Treatments in Youths With Chronic Tic Disorder
+or Tourette Syndrome. Frontiers in Psychiatry 2018;
+9(100), doi: 10.3389/fpsyt.2018.00100
+
+
+62. Michal Novotny _et al_ . Tourette Syndrome: A MiniReview. Frontiers in Neurology 2018; 9, doi:
+10.3389/fneur.2018.00139
+
+
+63. Nissen JB _et al_ . Combined habit reversal training and
+exposure response prevention in a group setting compared to individual training: a randomized controlled
+clinical trial. Eur Child Adolesc Psychiatry. 2019;
+28(1):57–68, doi: 10.1007/s00787-018-1187–z
+
+
+64. Sabine Wilhelm _et al_ . Habit Reversal Versus Supportive Psychotherapy for Tourette’s Disorder:
+A Randomized Controlled Trial. The American
+Journal of Psychiatry 2003; 160(6):1175–7, doi:
+10.1176/appi.ajp.160.6.1175
+
+
+65. Per Andrén _et_ _al_ . Therapist-guided and parentguided internet-delivered behaviour therapy for paediatric Tourette’s disorder: a pilot randomised controlled trial with longterm follow-up. BMJ Open 2019;
+9(2):e024685, doi: 10.1136/bmjopen-2018–024685
+
+
+
+60
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+66. Douglas W. Woods _et al._ Tourettes Syndrom Ticskontrollerende trening. Manual for behandlere. Oxford
+University Press, 2008
+
+
+67. Chad T Wetterneck _et al_ . An Evaluation of the Effectiveness of Exposure and Response Prevention on
+Repetitive Behaviors Associated with Tourette’s Syndrome. J Appl Behav Anal. 2006; 39(4):441–4, doi:
+10.1901/jaba.2006.149–03
+
+
+68. Denis G. Sukhodolsky _et al_ . Moderators and predictors of response to behavior therapy for tics in Tourette syndrome. Neurology 2017; 88(11):1029–36, doi:
+10.1212/WNL.0000000000003710
+
+
+69. Rowshanak Hashemiyoon _et al_ . Putting the Pieces Together in Gilles de la Tourette Syndrome: Exploring
+the Link Between Clinical Observations and the Biological Basis of Dysfunction. Brain Topography 2017;
+30(1):3–29, doi: 10.1007/s10548-016-0525–z
+
+
+70. Todd M. Herrington _et al_ . Mechanisms of deep brain
+stimulation. J Neurophysiology 2015; 115(1):19–38,
+doi: 10.1152/jn.00281.2015
+
+
+71. Nandakumar S. Narayanan _et al_ . The Fastest Way
+to Stop: Inhibitory Control and IFG-STN Hyperdirect Connectivity. Neuron 2020; 106(4):549–51, doi:
+10.1016/j.neuron.2020.04.017
+
+
+72. Andrea E. Cavanna _et al_ . Tourette Syndrome and Consciousness of Action. Tremor Other Hyperkinet Mov
+2013; 3:tre-03-181-4368–1, doi: 10.7916/D8PV6J33
+
+
+73. Irene Neuner _et al_ . Imaging the where and when of tic
+generation and resting state networks in adult Tourette patients. Frontiers in Human Neuroscience 2014;
+8(362), doi: 10.3389/fnhum.2014.00362
+
+
+74. Norman L. J. _et al_ . Structural and Functional Brain
+Abnormalities in Attention-Deficit/Hyperactivity Disorder and Obsessive-Compulsive Disorder: A Comparative Meta-analysis. JAMA Psychiatry. 2016; 73(8):815–
+25, doi: 10.1001/jamapsychiatry.2016.0700
+
+
+75. Witney Chen _et_ _al_ . Prefrontal-Subthalamic Hyperdirect Pathway Modulates Movement Inhibition
+in Humans. Neuron 2020; 106(4):579–88, doi:
+10.1016/j.neuron.2020.02.012
+
+
+76. Rune Boen _et al_ . Inhibitory Control and the Structural
+Parcelation of the Right Inferior Frontal Gyrus. Frontiers in Human Neuroscience 2022; 16, doi: 10.3389/fnhum.2022.787079
+
+
+77. Eric Krokos _et al_ . Virtual memory palaces: immersion aids recall. Virtual Reality 2018; 23:1–15, doi:
+10.1007/s10055-018-0346–3
+
+
+78. Yeon Soon Shin _et al_ . Context-dependent memory effects in two immersive virtual reality environments: On
+Mars and underwater. Psychonomic Bulletin & Review 2020; 28(12):574–82, doi: 10.3758/s13423-02001835–3
+
+
+79. Stavros Skouras _et al_ . Earliest amyloid and tau deposition modulate the influence of limbic networks during
+closed-loop hippocampal downregulation. Brain 2020;
+143(3):976–92, doi: 10.1093/brain/awaa011
+
+
+
+80. Megan T. deBettencourt _et al_ . Neurofeedback helps
+to reveal a relationship between context reinstatement
+and memory retrieval. Neuroimage 2019; 200:292–
+301, doi: 10.1016/j.neuroimage.2019.06.001
+
+
+81. Martine Hoogman _et al_ . Consortium neuroscience of attention deficit/hyperactivity disorder and autism spectrum disorder: The ENIGMA adventure. Human Brain
+Mapping 2020; 43(1):37–55, doi: 10.1002/hbm.25029
+
+
+82. Hyun-Chul Kim _et al_ . Mediation analysis of triple networks revealed functional feature of mindfulness from
+real-time fMRI neurofeedback. NeuroImage 2019;
+195:409–32, doi: 10.1016/j.neuroimage.2019.03.066
+
+
+83. Pradyumna Sepulveda _et al_ . How feedback, motor imagery, and reward influence brain self-regulation using
+real-time fMRI. Hum Brain Mapp. 2016; 37(9):3153–
+71, doi: 10.1002/hbm.23228
+
+
+84. Amelie Haugg _et al_ . Predictors of real-time fMRI
+neurofeedback performance and improvement - A
+machine learning mega-analysis. Neuroimage 2021;
+237:118207, doi: 10.1016/j.neuroimage.2021.118207
+
+
+85. Kathrin Cohen Kadosh & Graham Staunton. A systematic review of the psychological factors that influence
+neurofeedback learning outcomes. Neuroimage 2019;
+185:545–55, doi: 10.1016/j.neuroimage.2018.10.021
+
+
+86. John Ashburner _et al_ . PRoNTo Manual. Machine Learning & Neuroimaging Laboratory 2018; Computer Science Department:UCL
+
+
+87. J.Sugar, May-Britt Moser. Episodic memory: Neuronal
+codes for what, where, and when. Hippocampus 2019;
+29(12):1190–205, doi: 10.1002/hipo.23132
+
+
+88. Henrica M. A. de Bie _et al_ . Preparing children with
+a mock scanner training protocol results in high quality structural and functional MRI scans. European
+Journal of Pediatrics 2010; 169(9):1079–85, doi:
+10.1007/s00431-010-1181–z
+
+
+89. Dulce Romero-Ayuso _et al_ . Effectiveness of Virtual
+Reality-Based Interventions for Children and Adolescents with ADHD: A Systematic Review and MetaAnalysis. Children 2021; 8(2):70, doi: 10.3390/children8020070’
+
+
+90. Dongha Lee _et al_ . Neurofeedback learning for mental practice rather than repetitive practice improves neural pattern consistency and functional
+network efficiency in the subsequent mental motor execution. Neuroimage 2019; 188:680–93, doi:
+10.1016/j.neuroimage.2018.12.055
+
+
+91. Yury Koush _et al_ . Real-time fMRI data for testing OpenNFT functionality. Neuroimage 2017; 156:489–503,
+doi: 10.1016/j.dib.2017.07.049
+
+
+92. Franziska Weiss _et al_ . Using mind control to modify
+cue-reactivity in AUD: the impact of mindfulness-based
+relapse prevention on real-time fMRI neurofeedback to
+modify cue-reactivity in alcohol use disorder: a randomized controlled trial. BCM Psychiatry 2020; 20(1):309,
+doi: 10.1186/s12888-020-02717–7
+
+
+
+61
+
+
+_Fagerland, et al.: Exploring protocol development: Context enhanced rtfMRI-nf. J Electr Bioimp, 15, 41–62, 2024_
+
+
+
+93. Xin Di & Bharat B. Biswal. A functional MRI
+pre-processing and quality control protocol based
+on statistical parametric mapping (SPM) and
+MATLAB. Frontiers in Neuroimaging 2023; 1,
+doi:10.3389/fnimg.2022.1070151
+
+
+94. Paul A. Yushkevich _et al_ . ITK-SNAP. 2020. Available
+[from: http://www.itksnap.org/pmwiki/pmwiki.php?n=](http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.HomePage)
+[Main.HomePage](http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.HomePage)
+
+
+95. NITRC. MRICron. 2019
+
+
+96. [NITRC. WFU Pickatlas. 2020. Available from: https:](https://www.nitrc.org/projects/wfu_pickatlas/)
+[//www.nitrc.org/projects/wfu_pickatlas/](https://www.nitrc.org/projects/wfu_pickatlas/)
+
+
+97. Katya Rubia _et_ _al_ . Functional connectivity
+changes associated with fMRI neurofeedback of
+right inferior frontal cortex in adolescents with
+ADHD. NeuroImage 2019; 188:43–58, doi:
+10.1016/j.neuroimage.2018.11.055
+
+
+98. Katrin Amunts _et al_ . Julich-Brain: A 3D probabilistic atlas of the human brain’s cytoarchitecture.
+Science 2020; 369(6506):988–92, doi: 10.1126/science.abb4588
+
+
+99. Salim Al-Wasity _et al_ . Upregulation of Supplementary Motor Area Activation with fMRI Neurofeedback during Motor Imagery. eNeuro 2021; 8(1), doi:
+10.1523/ENEURO.0377-18.2020
+
+
+100. Mats Fredriksen, _et al_ . Long-term Pharmacotherapy
+of Adults with Attention-Deficit Hyperactivity Disorder
+(ADHD): A Literature Review and Clinical Study. Basic & Clinical Pharmacology & Toxicology 2015;
+118(1):23–31, doi: 10.1111/bcpt.12477.
+
+
+101. Mats Fredriksen _et_ _al_ . Pharmacological Treatment of Adult Attention-Deficit/Hyperactivity Disorder
+(ADHD) in a Longitudinal Observational Study: Estimated Treatment Effect Strengthened by Improved
+Covariate Balance. Open Journal of Statistics 2017;
+7:988–1012, doi: 10.4236/ojs.2017.76070
+
+
+102. EBRAINS. Probabilistic Brain Atlas. 2023. Available
+[from: https://julich-brain-atlas.de/atlas/probabilistic-](https://julich-brain-atlas.de/atlas/probabilistic-maps)
+[maps [Accessed on: 2023 Jan 24]](https://julich-brain-atlas.de/atlas/probabilistic-maps)
+
+
+103. David M. A. Mehler _et al_ . Graded fMRI Neurofeedback Training of Motor Imagery in Middle Cerebral Artery Stroke Patients: A Preregistered Proof-ofConcept Study. Front. Hum. Neurosci. 2020; 14:226,
+doi: 10.3389/fnhum.2020.00226
+
+
+104. Aurelio Cortese _et al_ . The DecNef collection, fMRI data
+from closed-loop decoded neurofeedback experiments.
+Scientific Data 2021; 8(65), doi: 10.1038/s41597-02100845-7
+
+
+105. Lab G. Acquiring DICOM images in real-time. 2019.
+[Available from: https : / / gallantlab . github . io /](https://gallantlab.github.io/realtimefmri/scanning/network.html)
+[realtimefmri/scanning/network.html](https://gallantlab.github.io/realtimefmri/scanning/network.html)
+
+
+106. Susan Whitfield-Gabrieli & Alfonso Nieto-Castanon.
+Conn: A functional connectivity toolbox for correlated
+and anticorrelated brain networks. Brain connectivity
+2012; 2(3):125–41, doi: 10.1089/brain.2012.0073
+
+
+107. Nieto-Castanon A. Handbook of functional connectivity
+Magnetic Resonance Imaging methods in CONN. 2020
+Feb
+
+
+
+108. J. Schrouff _et al_ . PRoNTo: Pattern Recognition
+for Neuroimaging Toolbox. Neuroinformatics 2013;
+11:319–37, doi: 10.1007/s12021-013-9178–1
+
+
+109. Epifanio Bagarinao _et al_ . Improving Real-Time Brain
+State Classification of Motor Imagery Tasks During Neurofeedback Training. Frontiers in Neuroscience
+2020; 14, doi:10.3389/fnins.2020.00623
+
+
+110. Nikita Davydov _et al_ . Real-time and Recursive Estimators for Functional MRI Quality Assessment. Neuroinformatics 2022; 20(4):897–917, doi: 10.1007/s12021022-09582–7
+
+
+111. Meryem A. Yücel _et al_ . Functional Near Infrared Spectroscopy: Enabling routine functional brain imaging.
+Current Opinion in Biomedical Enfineering 2017; 4:
+78-86, doi: 10.1016/j.cobme.2017.09.011
+
+
+112. Oshin Tyagi _et_ _al_ . Neural Signatures of Handgrip Fatigue in Type 1 Diabetic Men and Women. Frontiers in Human Neuroscience 2020; 14,
+doi:10.3389/fnhum.2020.564969
+
+
+113. João Pereira _et al_ . Multimodal assessment of the spatial correspondence between fNIRS and fMRI hemodynamic responses in motor tasks. Scientific Reports
+2023; 13:2244, doi: 10.1038/s41598-023-29123-9
+
+
+114. Franziska Klein _et_ _al_ . fMRI-based validation of
+continuous-wave fNIRS of supplementary motor area
+activation during motor execution and motor imagery. Scientific Reports 2022; 12:3570, doi:
+10.1038/s41598-022-06519-7
+
+
+115. Charlotte Piau _et al_ . Cortical hemodynamic mechanisms of reversal learning using high-resolution
+functional near-infrared spectroscopy: A pilot study.
+Neurophysiologie Clinique 2021; 51(5):409–24, doi:
+10.1016/j.neucli.2021.08.001
+
+
+116. Jake D. Rieke _et al_ . Development of a combined, sequential real-time fMRI and fNIRS neurofeedback system to enhance motor learning after stroke. Journal
+of Neuroscience Methods 2020; 341:108719, doi:
+10.1016/j.jneumeth.2020.108719
+
+
+117. Avi K. Matarasso _et al_ . Combined real-time fMRI and
+real time fNIRS brain computer interface (BCI): Training of volitional wrist extension after stroke, a case
+series pilot study. PLos One 2021; 16(5):e0250431,
+doi: 10.1371/journal.pone.0250431
+
+
+118. Wen-Jun Wu _et_ _al_ . A parallel-group study of
+near-infrared spectroscopy-neurofeedback in children with attention deficit hyperactivity disorder.
+Psychiatry Research 2022; 309:114364, doi:
+10.1016/j.psychres.2021.114364
+
+
+119. Douglas Teixeira Leffa _et_ _al_ . Transcranial Direct Current Stimulation vs Sham for the Treatment of Inattention in Adults With AttentionDeficit/Hyperactivity Disorder: The TUNED Randomized Clinical Trial. JAMA Psychiatry 2022; 79(9):847–
+56, doi:10.1001/jamapsychiatry.2022.2055
+
+
+120. Sherwood M. S. _et al_ . A Protocol for the Administration of Real-Time fMRI Neurofeedback Training. J Vis
+Exp. 2017; 126:55543, doi: 10.3791/55543
+
+
+
+62
+
+
